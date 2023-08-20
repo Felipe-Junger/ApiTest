@@ -3,9 +3,13 @@ const path = require('path');
 
 const app = express();
 
-app.get('/message/:id', ( request, response ) => {
-   
-   response.send(`Id da mensagem: ${request.params.id}`);
+app.get('/message/:id/:user', ( request, response ) => {
+   const { id, user } = request.params;
+
+   response.send(`
+      Mensagem ID: ${id}.
+      Para o usuário:${user}.   
+   `);
 });
 
 const PORT = 3333;
