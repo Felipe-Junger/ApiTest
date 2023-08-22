@@ -4,9 +4,11 @@ const UsersController = require('../controllers/UsersController');
 
 const userRoutes = Router();
 
-function myMiddleware () {
+function myMiddleware ( request, response, next ) {
     console.log('Você passou pelo middleware!');
-};
+
+    next();
+}
 
 
 const usersController = new UsersController();
